@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import playerReducer from './features/playerSlice';
-import { shazamCoreApi } from './services/shazamCore.';
-import { getDefaultMiddleware } from '@reduxjs/toolkit/dist/getDefaultMiddleware';
+import { shazamCoreApi } from './services/shazamCore';
+// import { getDefaultMiddleware } from '@reduxjs/toolkit/dist/getDefaultMiddleware';
 
 export const store = configureStore({
   reducer: {
