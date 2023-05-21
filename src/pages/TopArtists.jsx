@@ -2,7 +2,7 @@
 
 
 
-import { Error, Loader, SongCard } from '../components';
+import { ArtistCard, Loader, Error } from '../components';
 import { useGetTopChartsQuery } from '../redux/services/shazamCore';
 
 const TopArtists = () => {
