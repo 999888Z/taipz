@@ -5,6 +5,14 @@ import { FiSearch } from 'react-icons/fi'
 
 const Searchbar = () => {
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState('');
+  
+  const handleSubmit = (e) => (
+    e.preventDefault();
+
+    navigate(`/search/${searchTerm}`);
+
+  )
 
 return (
   <form autoComplete='off' className='p-2 text-gray-400 focus-within:text-gray-600'>
