@@ -5,10 +5,7 @@ import { DetailsHeader, Error, Loader, RelatedSongs } from '../components';
 import { setActiveSong, playPause } from '../redux/features/playerSlice';
 import { useGetSongDetailsQuery, useGetSongRelatedQuery } from '../redux/services/shazamCore';
 
-if(isFetchingSongDetails || isFetchingRelatedSongs) return 
-<Loader title='Searching song details' />;
 
-if (error) return <Error />;
 
 
 const SongDetails = () => {
@@ -26,6 +23,14 @@ const SongDetails = () => {
         dispatch(setActiveSong({ song, data, i }));
         dispatch(playPause(true));
     };
+
+    if(isFetchingSongDetails || isFetchingRelatedSongs) return 
+    
+    <Loader title='Searching song details' />;
+    
+    if (error) return <Error />;
+
+   
     
     return (
     
