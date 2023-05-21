@@ -7,9 +7,11 @@ import { Error, Loader, SongCard } from '../components';
 import { useGetSongsBySearchQuery } from '../redux/services/shazamCore';
 
 const Search = () => {
-    
+    const { searchTerm } = useParams();
     const { activeSong, isPlaying } = useSelector((state) => state.player);
-    const { data, isFetching, error } = useGetTopChartsQuery();
+    const { data, isFetching, error } = useGetSongsBySearchQuery(searchTerm);
+
+    const songs = data?.tracks?.hits?.map((song) => song.track);
 
 
    
