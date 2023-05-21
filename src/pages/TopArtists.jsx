@@ -28,15 +28,8 @@ return (
     </h2>
 
 <div className='flex flex-wrap sm:justify-start justify=center gap-8'>
-        {data?.map((song,i) => (
-            <SongCard
-                key={song.key}
-                song={song}
-                isPlaying={isPlaying}
-                activeSong={activeSong}
-                data={data}
-                i={i}
-            />
+        {data?.map((track) => (
+            <ArtistCard key={track.key} track={track}/>
 
 
 
