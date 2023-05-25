@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 
 import { useSelector } from 'react-redux';
 
