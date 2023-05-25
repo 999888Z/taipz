@@ -13,6 +13,7 @@ const ShowUpload = () => {
     concertImage: "",
     songName: "",
     audioFile: "",
+    track: "",
   });
 
   const handleChange = (e) => {
@@ -148,6 +149,17 @@ const ShowUpload = () => {
             type="text"
             name="audioFile"
             value={formData.audioFile}
+            onChange={handleChange}
+          />
+          <br/>
+                  <label className="upload-label">
+          Track Number:</label>
+          <br />
+          <input
+            className="upload-input"
+            type="text"
+            name="track"
+            value={formData.track}
             onChange={handleChange}
           />
         
