@@ -9,10 +9,11 @@ const ShowUpload = () => {
     city: "",
     state: "",
     country: "",
+    tourName:"",
     artistImage: "",
-    concertImage: "",
+    showImage: "",
     songName: "",
-    audioFile: "",
+    audioLink: "",
     track: "",
   });
 
@@ -24,23 +25,50 @@ const ShowUpload = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Perform any necessary actions with the form data
     console.log(formData);
-  //   setFormData({artist: "",
-  //   date: "",
-  //   venue: "",
-  //   city: "",
-  //   state: "",
-  //   country: "",
-  //   artistImage: "",
-  //   concertImage: "",
-  //   songName: "",
-  //   audioFile: "",
-  //   track: "",
-  // })
+    
+    if (formData) {
+      try {
+        
+        const response = await fetch("http://localhost:3001/api/artist", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            artistName: formData.artist,
+            artistImage: formData.artistImage,
+            date: formData.date,
+            venue: formData.venue,
+            city: formData.city,
+            state: formData.state,
+            country: formData.country,
+            tourName: formData.tourName,
+            showImage: formData.showImage,
+            songName: formData.songName,
+            audioLink: formData.audioLink,
+            track: formData.track  
+          }),
+        });
+
+        const data = await response.json();
+       
+        
+      } catch (err) {
+        alert(err);
+      } 
+    //   finally {
+    //     setGeneratingImg(false);
+    //   }
+    // } else {
+    //   alert("Please provide proper prompt");
+    // }
+    
+
   };
+}
 
   return (
     <div style={{ textAlign: "center" }}>
@@ -118,6 +146,18 @@ const ShowUpload = () => {
        
         <br />
         <label className="upload-label">
+          Tour Name: </label>
+          <br />
+          <input
+            className="upload-input"
+            type="text"
+            name="tourName"
+            value={formData.tourName}
+            onChange={handleChange}
+          />
+       
+        <br />
+        <label className="upload-label">
           Artist Image:</label>
           <br />
           <input
@@ -135,8 +175,8 @@ const ShowUpload = () => {
           <input
             className="upload-input"
             type="text"
-            name="concertImage"
-            value={formData.concertImage}
+            name="showImage"
+            value={formData.showImage}
             onChange={handleChange}
           />
         
@@ -154,13 +194,13 @@ const ShowUpload = () => {
         
         <br />
         <label className="upload-label">
-          Audio File:</label>
+          Audio File Link:</label>
           <br />
           <input
             className="upload-input"
             type="text"
-            name="audioFile"
-            value={formData.audioFile}
+            name="audioLink"
+            value={formData.audioLink}
             onChange={handleChange}
           />
           <br/>
