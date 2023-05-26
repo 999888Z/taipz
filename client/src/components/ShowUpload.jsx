@@ -24,10 +24,37 @@ const ShowUpload = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Perform any necessary actions with the form data
     console.log(formData);
+    
+    if (formData) {
+      try {
+        
+        const response = await fetch("http://localhost:3001/api/artist", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            artistName: formData.artist,
+            artistImage: formData.artistImage,
+          }),
+        });
+
+        const data = await response.json();
+       
+        
+      } catch (err) {
+        alert(err);
+      } 
+    //   finally {
+    //     setGeneratingImg(false);
+    //   }
+    // } else {
+    //   alert("Please provide proper prompt");
+    // }
+    
   //   setFormData({artist: "",
   //   date: "",
   //   venue: "",
@@ -41,6 +68,7 @@ const ShowUpload = () => {
   //   track: "",
   // })
   };
+}
 
   return (
     <div style={{ textAlign: "center" }}>
