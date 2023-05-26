@@ -16,7 +16,7 @@ const SongSchema = mongoose.Schema({
 
   // shows: [showsSchema],
 
-  timeStamps: true,
+  // timeStamps: true,
 });
 
 const Song = mongoose.model("Song", SongSchema);
