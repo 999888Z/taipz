@@ -28,6 +28,18 @@ const ShowUpload = () => {
     e.preventDefault();
     // Perform any necessary actions with the form data
     console.log(formData);
+  //   setFormData({artist: "",
+  //   date: "",
+  //   venue: "",
+  //   city: "",
+  //   state: "",
+  //   country: "",
+  //   artistImage: "",
+  //   concertImage: "",
+  //   songName: "",
+  //   audioFile: "",
+  //   track: "",
+  // })
   };
 
   return (

@@ -1,17 +1,15 @@
 
-// const userRoutes = require('./uRoutes');
+import express from 'express'
+import artistRoutes from './artistRoutes.js'
+import showRoutes from './showRoutes.js'
+import songRoutes from './songRoutes.js'
 
-// const thoughtRoutes = require('./thoughtRoutes');
-import router from 'express'
-import artistRoutes from './artistRoutes'
-import showRoutes from './showRoutes'
-import songRoutes from './songRoutes'
+const router = express.Router()
 
 
-router = express.Router();
 
 router.use('/artist', artistRoutes);
 router.use('/show', showRoutes);
 router.use('/show', songRoutes);
 
-module.exports = router;
+export default router;
