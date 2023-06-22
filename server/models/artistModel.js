@@ -20,6 +20,10 @@ const ArtistSchema = mongoose.Schema(
       type: Date,
       required: true,
     },
+    venue: {
+      type: String,
+      required: true,
+    },
     city: {
       type: String,
       required: true,

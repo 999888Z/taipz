@@ -3,14 +3,24 @@ import Artist from '../../models/artistModel.js'
 import Show from '../../models/artistModel.js'
 const router = express.Router()
 
+router.get ('/', async (req, res) => {
+  
+try {
+  const getMusic = await Artist.find({})
+  console.log(getMusic)
+  res.json(getMusic)
 
+} catch (error) {
+  console.log(error)
+}
+})
 
 router.post ('/', async (req, res) => {
 
     // console.log(req.body)
     // const newArtist = Artist.create(req.body)
     const { artistName, artistImage, venue, date, city, state, country, tourName, showImage, songName, audioLink, track } = req.body;
- 
+ console.log(venue)
   try {
     
  

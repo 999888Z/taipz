@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-50">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAJiUoACAfIwAfHiEAJSQmAB4dHwBFREYAHx0iAB0cIAAfHiIAHx4gAB8dIwAgHyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAcLCQAAAAAAAAAAAAAACQkJCQkFAAAAAAAAAAAAAAEJCQkJCQYAAAAAAAAAAAAJCQkJCQkJAAAAAAAAAAAAAAkICgUFCQAAAAAAAAAAAAAAAAAACQkAAAAAAAAAAAAAAAAAAAkJAAAAAAAAAAAAAAAAAAAJCQAAAAAAAAAAAAAAAAAACQIAAAAAAAAAAAAAAAAAAAkCAAAEAAAAAAAAAAAAAAAJCQAACQAAAAAAAAAAAAAACQkACQkAAAAAAAAAAAAAAAkJAwoAAAAAAAAAAAAAAAAJCQUAAAAAAAAAAAAAAAAACQkAAAAAAAAAAAAAAAAAAAkJAAAAAAAAAOH/AADA/wAAwH8AAMB/AADgfwAA/n8AAP5/AAD+fwAA/n8AAP5vAAD+bwAA/k8AAP4fAAD+PwAA/n8AAP5/AAA=" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taipz</title>
+    <!-- <script src="https://apis.google.com/js/api.js"></script> -->
+    <script type="module" crossorigin src="/assets/index.fa3057a2.js"></script>
+    <link rel="stylesheet" href="/assets/index.5fca1623.css">
+  </head>
+  <body class="h-full overflow-hidden">
+    <div id="root"></div>
+    
+
+    <!-- Google API and Google Sign-In scripts -->
+    
+    <script>
+      function handleClientLoad() {
+        gapi.load('client:auth2', initClient);
+      }
+
+      function initClient() {
+        gapi.client.init({
+          apiKey: 'AIzaSyA-C-FUFiS1Ch984SSsmyLiGDrvD4i78M0',
+          clientId: '74125366778-77enc57cag2a25sh738smqqvemevipcu.apps.googleusercontent.com',
+          discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'],
+          scope: 'https://www.googleapis.com/auth/drive'
+        }).then(function() {
+          // Client library initialized successfully
+          // You can now use gapi.client and other APIs
+        }, function(error) {
+          // Error initializing client library
+          console.error('Error initializing client library: ', error);
+        });
+      }
+    </script>
+    <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+    <button onclick="signIn()">Sign In with Google</button>
+    <script>
+      function signIn() {
+        gapi.auth2.getAuthInstance().signIn().then(function() {
+          // User successfully signed in
+          // You can now make authorized requests to Google Drive
+          var accessToken = gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token;
+          console.log('Access token:', accessToken);
+        }, function(error) {
+          // Error signing in user
+          console.error('Error signing in user: ', error);
+        });
+      }
+    </script>
+  </body>
+</html>
