@@ -83,22 +83,22 @@
 
 import { useState, useEffect } from 'react';
 
-// Initialize Google Sign-In
-function initGoogleSignIn() {
-    gapi.load('auth2', function() {
-      gapi.auth2.init({
-        client_id: '74125366778-77enc57cag2a25sh738smqqvemevipcu.apps.googleusercontent.com',
-      }).then(function() {
-        // Google Sign-In initialized successfully
-      }).catch(function(error) {
-        // Error initializing Google Sign-In
-        console.error('Error initializing Google Sign-In: ', error);
-      });
-    });
-  }
+// // Initialize Google Sign-In
+// function initGoogleSignIn() {
+//     gapi.load('auth2', function() {
+//       gapi.auth2.init({
+//         client_id: '74125366778-77enc57cag2a25sh738smqqvemevipcu.apps.googleusercontent.com',
+//       }).then(function() {
+//         // Google Sign-In initialized successfully
+//       }).catch(function(error) {
+//         // Error initializing Google Sign-In
+//         console.error('Error initializing Google Sign-In: ', error);
+//       });
+//     });
+//   }
   
-  // Call the initGoogleSignIn function when the API script is loaded
-  gapi.load('client:auth2', initGoogleSignIn);
+//   // Call the initGoogleSignIn function when the API script is loaded
+//   gapi.load('client:auth2', initGoogleSignIn);
 
 const JohnsShows = () => {
   const [fileData, setFileData] = useState(null);
@@ -145,6 +145,8 @@ console.log(name, webViewLink)
 }
 
 export default JohnsShows;
+
+
 
 
 
