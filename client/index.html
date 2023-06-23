@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Taipz</title>
-    <script src="https://apis.google.com/js/api.js"></script>
+    
   </head>
   <body class="h-full overflow-hidden">
     <div id="root"></div>
@@ -23,7 +23,7 @@
           apiKey: 'AIzaSyA-C-FUFiS1Ch984SSsmyLiGDrvD4i78M0',
           clientId: '74125366778-77enc57cag2a25sh738smqqvemevipcu.apps.googleusercontent.com',
           discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'],
-          scope: 'https://www.googleapis.com/auth/drive'
+          scope: 'https://www.googleapis.com/auth/drive.photos.readonly'
         }).then(function() {
           // Client library initialized successfully
           // You can now use gapi.client and other APIs
@@ -48,5 +48,6 @@
         });
       }
     </script>
+    <script src="https://apis.google.com/js/api.js"></script>
   </body>
 </html>

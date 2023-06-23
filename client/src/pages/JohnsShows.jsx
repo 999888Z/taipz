@@ -102,9 +102,10 @@ import { useState, useEffect } from 'react';
 
 const JohnsShows = () => {
   const [fileData, setFileData] = useState(null);
-  const fileId = '1wCwukfzmEH30QM26nE_4-_L4-IYmsGwD';
+  const fileId = '1S1nUYpFy3XX_DE7GQEavxv_fO65JemeO';
   const apiKey = 'AIzaSyA-C-FUFiS1Ch984SSsmyLiGDrvD4i78M0';
-  const apiUrl = `https://www.googleapis.com/drive/v3/files/${fileId}?key=${apiKey}`;
+  const apiUrl = `https://www.googleapis.com/drive/v3/files/${fileId}?key=${apiKey}&fields=kind,id,name,mimeType,thumbnailLink,webContentLink,createdTime,modifiedTime,size`;
+
 
   useEffect(() => {
     fetch(apiUrl)
@@ -129,8 +130,8 @@ const JohnsShows = () => {
     return 
   }
 
-  const { name, webViewLink } = fileData;
-console.log(name, webViewLink)
+  const { name, webContentLink } = fileData;
+console.log(fileData)
   return (
     <div className='flex flex-col'>
       <h2 className='font-bold text-3xl text-white text-left mt-4 mb-10'>John's Shows</h2>
@@ -139,7 +140,11 @@ console.log(name, webViewLink)
       
       {/* Render the image */}
       
-      <img src={webViewLink} alt={name} />
+      <img src={webContentLink} alt={name} />
+      <audio controls>
+        <source src={webContentLink} type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
     </div>
   );
 }
